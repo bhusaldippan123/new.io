@@ -1,0 +1,140 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Card Slideshow</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #slideshow {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .card.active {
+            opacity: 1;
+        }
+
+        .card-img-top {
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-text {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .navigation {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .navigation button {
+            background-color: transparent;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            margin: 0 5px;
+            padding: 0;
+            font-size: 24px;
+            color: #000;
+            opacity: 0.5;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .navigation button:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <!-- Slideshow Section -->
+    <section id="slideshow" class="container">
+        <div class="card active">
+            <img src="image1.jpg" class="card-img-top" alt="Image 1">
+            <div class="card-body">
+                <h5 class="card-title">Card 1</h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="image2.jpg" class="card-img-top" alt="Image 2">
+            <div class="card-body">
+                <h5 class="card-title">Card 2</h5>
+                <p class="card-text">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            </div>
+        </div>
+        <div class="card">
+            <img src="image3.jpg" class="card-img-top" alt="Image 3">
+            <div class="card-body">
+                <h5 class="card-title">Card 3</h5>
+                <p class="card-text">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            </div>
+        </div>
+        <div class="navigation">
+            <button id="prevBtn">&lt;</button>
+            <button id="nextBtn">&gt;</button>
+        </div>
+    </section>
+
+    <!-- Bootstrap & jQuery JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        $(document).ready(function() {
+            // Initialize slideshow
+            var currentSlide = 0;
+            var slides = $('.card');
+
+            // Show first slide
+            slides.eq(currentSlide).addClass('active');
+
+            // Next button click event
+            $('#nextBtn').click(function() {
+                slides.eq(currentSlide).removeClass('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides.eq(currentSlide).addClass('active');
+            });
+
+            // Previous button click event
+            $('#prevBtn').click(function() {
+                slides.eq(currentSlide).removeClass('active');
+                currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+                slides.eq(currentSlide).addClass('active');
+            });
+        });
+    </script>
+</body>
+</html>

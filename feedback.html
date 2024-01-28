@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>WhatsApp Message Form</title>
+</head>
+<body>
+    <div id="whatsappContainer">
+        <label for="message">Your Message:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+        
+        <button onclick="sendMessage()">Send Message</button>
+    </div>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#whatsappContainer {
+    max-width: 400px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+</style>
+<script>
+    function sendMessage() {
+    const userMessage = encodeURIComponent(document.getElementById('message').value);
+
+    // For demonstration purposes, you can construct a URL for a WhatsApp message.
+    const whatsappURL = `https://api.whatsapp.com/send?text=${userMessage}`;
+
+    // Open the WhatsApp URL in a new tab.
+    window.open(whatsappURL, '_blank');
+}
+
+</script>
+    <script src="script.js"></script>
+</body>
+</html>

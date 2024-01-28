@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+   <meta name="robots" content="index, follow">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.23.0/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Include FontAwesome icons (Replace with the actual URL if needed) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4269643660923808"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <style>
+  /* Initial underline style */
+  .underline {
+    position: relative;
+    text-decoration: none;
+    text-decoration: none;
+    text-decoration-color: none;
+    color: auto;
+    color-adjust: auto;
+     /* Default text color */
+  }
+
+  .underline::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px; /* Underline thickness */
+    bottom: 0;
+    left: 0;
+    background: #3498db; /* Initial underline color */
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+
+  /* Hover effect */
+  .underline:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    background: #e74c3c; /* Hovered underline color */
+  }
+</style>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Osmanya&display=swap');
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap');
+</style>
+  <nav>
+    <div class="logo">
+      <img src="https://cdn.technicaldippan.repl.co/new_icon.jpeg" title="Technical Dippan.." alt="Logo">
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#Home?utm_src:Main_Page" class="underline" style="color: #a3410b;">Home</a></li>
+      <li><a href="#"class="underline">About</a></li>
+      <li><a href="#" class="underline">Services</a></li>
+      <li><a href="#" class="underline">Contact</a></li>
+    </ul>
+    <a href="javascript:void(0);" class="icon" onclick="toggleMenu()">
+      <div class="container" onclick="myFunction(this)">
+  <div class="bar1"></div>
+  <div class="bar2"></div>
+  <div class="bar3"></div>
+</div>
+
+    </a>
+  </nav>
+  <style>
+.container {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.bar1, .bar2, .bar3 {
+  width: 35px;
+  height: 5px;
+  background-color: #333;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+.change .bar1 {
+  transform: translate(0, 11px) rotate(-45deg);
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+  transform: translate(0, -11px) rotate(45deg);
+}
+</style>
+<script>
+function myFunction(x) {
+  x.classList.toggle("change");
+}
+</script>
+
+  <style>
+      /* Styles for the navigation bar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ddd;
+  padding: 10px 20px;
+  color: #000;
+}
+
+.logo img {
+  height: 50px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: #000;
+  text-decoration: none;
+  font-family: 'Noto Sans Osmanya', sans-serif;
+  font-family: 'Playpen Sans', cursive;
+}
+
+.icon {
+  display: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #fff;
+    top: 80px;
+    left: 0;
+    width: 100%;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .icon {
+    display: block;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+}
+
+  </style>
+  <script>
+      function toggleMenu() {
+  var navLinks = document.getElementById("navLinks");
+  if (navLinks.style.display === "block") {
+    navLinks.style.display = "none";
+  } else {
+    navLinks.style.display = "block";
+  }
+}
+
+  </script><style>
+  body {
+      animation: 2s open infinite forwards linear ease-in-out;
+      transition: 2s ease-in-out;
+  }
+  @keyframes open {
+      from {
+          opacity: 0%;
+          display: none;
+      }
+      to {
+          opacity: 100%;
+          display: block;
+      }
+  }
+  /* Loading animation styles */
+  #loading-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  .loader {
+    border: 8px solid #f3f3f3; /* Light gray border */
+    border-top: 8px solid #3498db; /* Blue border for animation */
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite; /* Rotation animation */
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+</style>
+<div id="loading-animation">
+    <div class="loader"></div>
+  </div>
+  <script>
+      // JavaScript to hide the loading animation after 3 seconds or when the content is loaded
+      window.addEventListener('load', function() {
+          setTimeout(function() {
+              document.getElementById('loading-animation').style.display = 'none';
+          }, 3000); // 3 seconds
+      });
+  </script>
+  
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .cookie-dialog {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.5s;
+        }
+
+        .cookie-dialog.active {
+            transform: translateX(-50%) translateY(-10px);
+        }
+
+        button {
+            background: #fff;
+            color: #007BFF;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="cookie-dialog" id="cookieDialog">
+        <p>This website uses cookies to ensure you get the best experience.</p>
+        <button id="acceptCookies">Accept</button>
+        <button id="declineCookies">Decline</button>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const cookieDialog = document.getElementById("cookieDialog");
+            const acceptCookiesButton = document.getElementById("acceptCookies");
+            const declineCookiesButton = document.getElementById("declineCookies");
+
+            // Check if the user has accepted cookies
+            const hasAcceptedCookies = localStorage.getItem("acceptedCookies") === "true";
+
+            if (!hasAcceptedCookies) {
+                cookieDialog.style.display = "block";
+                cookieDialog.classList.add("active");
+
+                acceptCookiesButton.addEventListener("click", function() {
+                    cookieDialog.style.display = "none";
+                    localStorage.setItem("acceptedCookies", "true");
+                    // Add code to set cookies here
+                    alert("Thankyou! 🥳");
+                });
+
+                declineCookiesButton.addEventListener("click", function() {
+                    cookieDialog.style.display = "none";
+                    localStorage.setItem("acceptedCookies", "false");
+                    // Add code to handle declined cookies here
+                    alert("Thankyou... (msg: Decline)");
+                });
+            }
+        });
+    </script>
+    <br>
+    <style>
+        .heading {
+            font-size: 2rem;
+            justify-self: center;
+            justify-items: center;
+            justify-content: center;
+            align-self: center;
+            align-content: center;
+            display: flex;
+            flex-direction: row;
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+            width: 80%;
+            min-width: 50%;
+            max-height: 55vh;
+            height: auto;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+            text-align: center;
+           min-height: 10%;
+           padding: 2px 2px 2px 2px;
+           border-radius: 50%;
+           border-style: dotted;
+        }
+        .heading-content {
+            top: 40%;
+            bottom: 50%;
+            font-family: 'Playpen Sans', cursive;
+            text-shadow: 2px 2px 5px #000;font-family: 'Playpen Sans', cursive;
+            cursor: pointer;
+     text-overflow: ellipsis;
+     overflow: hidden;
+     width: auto;
+        }
+    </style>
+    <center>
+   <div class="heading">
+       <span class="heading-content"  >
+           Welcome to World Of Technical Dippan..
+       </span>
+   </div></center>
+   <style>
+  @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@1,500&family=Playpen+Sans:wght@300&display=swap');
+</style><style>
+        .network-status {
+            font-size: 24px;
+            display: inline-block;
+            justify-content: right;
+            align-content: right;
+            align-items: right;
+            padding-right: 6px;
+        }
+    
+        .disconnected {
+            color: red;
+        }
+    
+        .connected {
+            color: green;
+        }
+    </style>
+    <div align="right">
+        <i class="network-status bi bi-wifi-off"></i> Disconnected
+    </div>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const networkStatus = document.querySelector('.network-status');
+    
+            // Check network status here, replace with your actual logic
+            const isNetworkConnected = true; // Replace with your network status detection
+    
+            if (isNetworkConnected) {
+                networkStatus.classList.remove('disconnected', 'bi-wifi-off');
+                networkStatus.classList.add('connected', 'bi-wifi');
+                networkStatus.nextSibling.textContent = " Connected";
+            } else {
+                networkStatus.classList.add('disconnected', 'bi-wifi-off');
+                networkStatus.nextSibling.textContent = " Disconnected";
+            }
+        });
+    </script>
+    <style>
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css");
+    </style>
+    <script>
+        function setDisconnected() {
+            const wifiIcon = document.querySelector('.wifi-icon');
+            wifiIcon.classList.remove('connected', 'bi-wifi');
+            wifiIcon.classList.add('disconnected', 'bi-x');
+        }
+    </script><br><center>
+    <div style="width: 89%; box-shadow: 2px 2px 6px #000; justify-content: center; border-radius: 25%;" class="alert alert-info alert-dismissible fade show" role="alert">
+  <strong style="font-family: 'Lora', serif;
+  font-family: 'Playpen Sans', cursive;">Hello World!</strong><span style="font-family: 'Playpen Sans', cursive;" class="underline"> &nbsp;Start For Explore the <b>World Of Internet.</b></span>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div></center>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+  <div class="breadcrumbs">
+  <a href="#"><img srcset="Technical Dippan" src="https://cdn.technicaldippan.repl.co/new_icon.jpeg" alt="Technical Dippan" title="Technical Dippan" style="height: 50px;">Technical Dippan.</a>
+  <span> > </span>
+  <a href="#">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+          <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z" />
+      </svg> &nbsp;Home</a>
+  <span> </span>
+  <a href="#"></a>
+</div>
+
+<style>
+.breadcrumbs {
+  font-size: 18px;
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  background-color: #ddd;
+  justify-content: left;
+  box-shadow: 2px 2px 4px #f9f9;
+  width: 50% auto;
+  padding: 4px 2px 5px 3px;
+  margin-left: 10px;
+  padding-left: 44px;
+}
+
+.breadcrumbs a {
+  text-decoration: none;
+  color: black; /* Beautiful black technical Dippan color */
+  position: relative;
+  transition: color 0.3s;
+}
+
+.breadcrumbs a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  background-color: #ff6b6b; /* Beautiful red color */
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+.breadcrumbs a:hover {
+  color: #ff6b6b; /* Change color on hover to red */
+}
+
+.breadcrumbs a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.breadcrumbs span {
+  margin: 0 5px;
+  color: #777;
+  transition: color 0.3s;
+}
+
+</style>
+<script>
+    // You can use JavaScript to dynamically generate breadcrumbs based on the current page.
+const breadcrumbs = document.querySelector('.breadcrumbs');
+
+const pages = [
+  { name: 'Technical Dippan', url: '/?Home#src_td_HOME' },
+  { name: '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+</svg>Home', url: '/index.html' },
+];
+
+breadcrumbs.innerHTML = pages.map(page => {
+  if (page.url) {
+    return `<a href="${page.url}">${page.name}</a> <span> > </span>`;
+  } else {
+    return page.name;
+  }
+}).join('');
+
+</script>
+<style>
+    .hr_border {
+        width: 100%;
+        border-bottom: 3px #000;
+        border-style: dotted;
+    }
+</style>
+<script src="confirmation.js"></script>
+<script>
+    window.addEventListener('beforeunload', function (e) {
+    e.preventDefault();
+    e.returnValue = '';
+
+    const confirmationMessage = 'Are you sure you want to leave this page?';
+
+    // Customize the confirmation message
+    e.returnValue = confirmationMessage;
+
+    // You can also style the confirmation dialogue with CSS
+    const style = `
+        font-family: Arial, sans-serif;
+        background-color: #fff;
+        color: #000;
+        text-align: center;
+        padding: 20px;
+        border: 2px solid #333;
+        border-radius: 5px;
+    `;
+
+    e.returnValue.style = style;
+
+    return confirmationMessage;
+});
+
+</script>
+<div class="hr_border">
+    <!--Boder Dashed Lines for Decorative Purposes By Technical Dippan -->
+</div>
+<br>
+<div class="about">
+  <center>
+    <div class="project-main">
+        About Us:
+    </div>
+   </center>
+   <span class="about-main">
+       <img align="left" srcset="Technical Dippan" src="https://cdn.technicaldippan.repl.co/new_icon.jpeg" alt="Technical Dippan" title="Technical Dippan" style="height: 80px;">Technical Dippan is the Company Made by Mr.Dippan Bhusal on 01/01/2023 For to Provide the Web-Facilities to every People.
+   </span>
+   <br>
+   <style>
+       
+   </style>
+   <br><style>
+  @import url('https://fonts.googleapis.com/css2?family=Cedarville+Cursive&display=swap');
+</style>
+   <center>
+    <button class="read-button" style="">Read More.. &nbsp;  <i class="bi bi-arrow-right-circle"></i></button>
+    <style>
+        /* Button style */
+.read-button {
+  background-color: transparent;
+  color: #3498db;
+  padding: 10px 20px;
+  border: 2px solid #3498db;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: Arial, sans-serif;
+  font-family: 'Playpen Sans', cursive;
+}
+
+/* Hover effect */
+.read-button:hover {
+  background-color: #3498db;
+  color: #fff;
+  transform: translateX(10px);
+  font-family: "Agbalumo", cursive;
+}
+
+    </style>
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@300&display=swap');
+</style>
+   </center>
+</div>
+<style>
+body {
+    color: auto;
+    color-adjust: auto;
+}
+
+  @import url('https://fonts.googleapis.com/css2?family=Kenia&display=swap');
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+</style>
+<style>
+.about-main {
+    margin-top: 4px;
+    overflow: hidden;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-size: 25px;
+    width: 90%;
+   padding-left: 16px;
+   padding-right: 16px;
+   display: inline-flexbox;
+   flex-flow: right;
+   flex-wrap: wrap;
+   flex-direction: row;
+   margin-left: 8px;
+   margin-right: 8px;
+   animation: 5s onstart ease-in-out forwards;
+
+}
+@keyframes onstart{
+    0%{
+        opacity: 0%;
+    }
+    40% {
+        color: orange;
+            opacity: 40%;
+    }
+    60% {
+        color: red;
+            opacity: 60%;
+    }
+    80% {
+        color: green;
+        opacity: 80%;
+    }
+    100%{
+       opacity: 100%;
+    }
+}
+  @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@500;600&display=swap');
+</style><style>
+  @import url('https://fonts.googleapis.com/css2?family=Edu+TAS+Beginner:wght@600&display=swap');
+</style>
+<style>
+    a:hover .bi-chevron-right::before {
+    transform: rotate(90deg);
+    display: inline-block;
+}
+.bi-chevron-right {
+    display: none;
+}
+.bi-chevron-right:hover {
+    display: inline-block;
+}
+</style>
+<br><br>
+<div class="hr_border">
+    <!--Boder Dashed Lines for Decorative Purposes By Technical Dippan -->
+</div>
+<br>
+<center>
+<div class="container">
+        <div id="ad-container" class="ad">
+            <script async="async" data-cfasync="false" src="//pl20313779.toprevenuegate.com/99fbaa0c79750238f4aaf7618560d93f/invoke.js"></script>
+<div id="container-99fbaa0c79750238f4aaf7618560d93f"></div>            <div class="ad-icon">
+                <i style="color: auto;" class="fas fa-ad"></i>
+            </div>
+        </div>
+    </div>
+    </center>
+    <style>
+        .container {
+    max-width: 100% auto;
+    width: 50%;
+    padding: 15px;
+    text-align: left;
+}
+
+.ad {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-self: right;
+    align-items: right;
+    justify-self: right;
+}
+
+.ad img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.ad-icon {
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 50%;
+}
+
+    </style>
+    <!--Style for Project__-->
+    <style>
+  @import url('https://fonts.googleapis.com/css2?family=Agbalumo&display=swap');
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Bruno+Ace&display=swap');
+</style>
+    <style>
+        .project-main {
+            font-family: 'Agbalumo', cursive;
+            justify-items: center;
+            justify-self: center;
+            justify-content: center;
+            font-size: 38px;
+            
+        }
+    </style>
+   <center>
+    <div class="project-main">
+        Our Services..
+    </div>
+    </center>
+    
+<div class="card-list">
+        <a href="https://ip-address.technicaldippan.repl.co/?utm="Technical Dippan Home"" class="card-item">
+            <img src="../ip.png?utm_src=home#Technical_Dippan"alt="Ip- Address" tititle="Technical Dippan IP address Project">
+            <span class="developer" style="font-family: 'Tapestry', serif;">Technical Dippan.</span>
+            <h3 style="font-family: 'Bruno Ace', sans-serif;">Get Your IP-Address Basic Information</h3>
+            <div class="arrow">
+                <i class="fas fa-arrow-right card-icon"></i>
+            </div>
+        </a>
+        <style>
+  @import url('https://fonts.googleapis.com/css2?family=Rubik+Scribble&display=swap');
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Sevillana&display=swap');
+</style>
+       <a href="https://device-information.technicaldippan.repl.co/?utm="Technical Dippan Home"" class="card-item">
+    <img src="device.webp?utm_src=home#Technical_Dippan" alt="Device Information" tititle="Technical Dippan Devive Information Project.">
+    <span class="developer" style="font-family: 'Tapestry', serif;">Technical Dippan.</span>
+    <h3 style="font-family: 'Bruno Ace', sans-serif;">Get Your Basic Device Information.</h3>
+    <div class="arrow">
+        <i class="fas fa-arrow-right card-icon"></i>
+    </div>
+</a>  
+   <a href="https://device-information.technicaldippan.repl.co/?utm="Technical Dippan Home"" class="card-item">
+    <img src="device.webp?utm_src=home#Technical_Dippan" alt="Device Information" tititle="Technical Dippan Devive Information Project.">
+    <span class="developer" style="font-family: 'Tapestry', serif;">Technical Dippan.</span>
+    <h3 style="font-family: 'Bruno Ace', sans-serif;"></h3>
+    <div class="arrow">
+        <i class="fas fa-arrow-right card-icon"></i>
+    </div>
+</a> 
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tapestry&display=swap');
+</style><!--Theme-->
+   <!--
+       <div class="theme-container" id="themeContainer">
+         
+       </div>
+       <script>
+           document.addEventListener('DOMContentLoaded', () => {
+               const body = document.body;
+               const themeContainer = document.getElementById('themeContainer');
+               const themeText = document.getElementById('themeText');
+   
+               // Detect the device theme (light or dark)
+               const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+   
+               // Apply initial theme
+               if (isDarkMode) {
+                   body.classList.add('dark');
+                   themeText.textContent = 'Dark Theme';
+               } else {
+                   body.classList.add('light');
+                   themeText.textContent = 'Light Theme';
+               }
+   
+               // Add a fade-in animation
+               themeContainer.style.opacity = 0;
+               setTimeout(() => {
+                   themeContainer.style.transition = 'opacity 1s';
+                   themeContainer.style.opacity = 1;
+               }, 1000);
+           });
+       </script>
+       <style>
+        body {
+            transition: background-color 0.5s;
+                 }
+
+        .light {
+            background-color: #f0f0f0;
+            color: #000;
+        }
+
+        .dark {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .theme-container {
+            text-align: center;
+        }
+
+        .theme-text {
+            font-size: 24px;
+        }
+    </style>-->
+    <!--ad blocker -->
+    <div id="ad-block-alert" class="hidden">
+        <p>Please disable your ad blocker to support this website. By Technical Dippan</p>
+    </div>
+    <style>
+        /* Add some styles to the ad blocker alert */
+#ad-block-alert {
+    display: none;
+    background-color: #f44336;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+    </style>
+    <script>
+        // Check if an ad blocker is active
+function checkAdBlocker() {
+    const adBlockerTest = document.createElement('div');
+    adBlockerTest.innerHTML = '&nbsp;';
+    adBlockerTest.className = 'adsbox';
+    document.body.appendChild(adBlockerTest);
+    setTimeout(() => {
+        if (adBlockerTest.offsetHeight === 0) {
+            // Ad blocker is active, show the alert
+            document.getElementById('ad-block-alert').style.display = 'block';
+        }
+        document.body.removeChild(adBlockerTest);
+    }, 100);
+}
+
+// Call the ad blocker check function when the page loads
+window.addEventListener('load', checkAdBlocker);
+
+    </script>
+    <style>
+        /* Importing Google font - Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background: #ecececdb;
+}
+
+.card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    max-width: 1250px;
+    margin: 150px auto;
+    padding: 20px;
+    gap: 20px;
+}
+
+.card-list .card-item {
+    background: #fff;
+    padding: 26px;
+    border-radius: 8px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.04);
+    list-style: none;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: border 0.5s ease;
+}
+
+.card-list .card-item:hover {
+    border: 2px solid #000;
+}
+
+.card-list .card-item img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.card-list span {
+    display: inline-block;
+    background: #F7DFF5;
+    margin-top: 32px;
+    padding: 8px 15px;
+    font-size: 0.75rem;
+    border-radius: 50px;
+    font-weight: 600;
+}
+
+.card-list .developer {
+    background-color: #F7DFF5; 
+    color: #B22485;
+}   
+
+.card-list .designer {
+    background-color: #d1e8ff;
+    color: #2968a8;
+}
+
+.card-list .editor {
+    background-color: #d6f8d6; 
+    color: #205c20;
+}
+
+.card-item h3 {
+    color: #000;
+    font-size: 1.438rem;
+    margin-top: 28px;
+    font-weight: 600;
+}
+
+.card-item .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotate(-35deg);
+    height: 40px;
+    width: 40px;
+    color: #000;
+    border: 1px solid #000;
+    border-radius: 50%;
+    margin-top: 40px;
+    transition: 0.2s ease;
+}
+
+.card-list .card-item:hover .arrow  {
+    background: #000;
+    color: #fff; 
+}
+
+@media (max-width: 1200px) {
+    .card-list .card-item {
+        padding: 15px;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .card-list {
+        margin: 0 auto;
+    }
+}
+    </style>
+    
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Weekend Events Newsletter</title>
+</head>
+<body>
+  <header>
+    <h1>Weekend Events Newsletter</h1>
+  </header>
+  <main>
+    <section class="event">
+      <h2>Event Name</h2>
+      <p>Date: Saturday, August 20</p>
+      <p>Time: 2:00 PM - 6:00 PM</p>
+      <p>Location: Local Park</p>
+      <p>Description: Join us for a fun-filled day of games and music in the park!</p>
+      <a href="#">Learn More</a>
+    </section>
+    <!-- Add more event sections here -->
+  </main>
+  <footer>
+    <p>&copy; 2023 Weekend Events Newsletter</p>
+  </footer>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
+
+main {
+  padding: 2rem;
+}
+
+.event {
+  border: 1px solid #ddd;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: #f4f4f4;
+}
+  
+  </style>
+  <script>
+      // You can add any interactive features or dynamic content using JavaScript here.
+// For example, you could implement a "Pick of the Week" vote or show a countdown timer to the next weekend.
+
+// Example of adding a countdown timer:
+const eventDate = new Date("2023-08-20T14:00:00"); // Set the event date and time
+const countdownElement = document.createElement("div");
+countdownElement.innerHTML = "Countdown: ";
+const countdownTimer = setInterval(updateCountdown, 1000);
+
+function updateCountdown() {
+  const now = new Date();
+  const timeRemaining = eventDate - now;
+  
+  if (timeRemaining > 0) {
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+    
+    countdownElement.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+  } else {
+    clearInterval(countdownTimer);
+    countdownElement.innerHTML = "Event has started!";
+  }
+}
+
+document.querySelector(".event").appendChild(countdownElement);
+
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>

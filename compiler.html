@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Code Compiler</title>
+    <style>
+        /* Your CSS styles go here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+        }
+        button {
+            background-color: #0074D9;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        #output {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <h1>Code Compiler</h1>
+    <textarea id="code" rows="10" cols="50">// Your code here</textarea>
+    <br>
+    <button onclick="compileCode()">Compile</button>
+    <h2>Output:</h2>
+    <pre id="output"></pre>
+<script>
+    function compileCode() {
+        const code = document.getElementById('code').value;
+        try {
+            const result = eval(code); // Execute JavaScript code
+            document.getElementById('output').textContent = result;
+        } catch (error) {
+            document.getElementById('output').textContent = 'Error: ' + error;
+        }
+    }
+</script>
+
+</body>
+</html>

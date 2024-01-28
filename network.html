@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+
+<body>
+ <div class="network-alert">
+        <p>Network Connection Lost</p>
+    </div>
+    <style>
+        body {
+    margin: 0;
+    padding: 0;
+}
+
+.network-alert {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 50px;
+    background-color: red;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    transition: left 0.5s ease;
+}
+
+    </style>
+    <script>
+        // Function to check network status
+function checkNetworkStatus() {
+    if (!navigator.onLine) {
+        // Network is disconnected, show the alert
+        document.querySelector('.network-alert').style.left = '0';
+    } else {
+        // Network is connected, hide the alert
+        document.querySelector('.network-alert').style.left = '100%';
+    }
+}
+
+// Initial check when the page loads
+checkNetworkStatus();
+
+// Listen for online and offline events
+window.addEventListener('online', checkNetworkStatus);
+window.addEventListener('offline', checkNetworkStatus);
+
+</style>
+</script>
+
+    <body>
+        <div data-pym-src="https://www.jdoodle.com/plugin" data-language="java"  data-version-index="4" data-libs="mavenlib1, mavenlib2">
+            Optional default code goes here
+        </div>
+        <script src="https://www.jdoodle.com/assets/jdoodle-pym.min.js" type="text/javascript"> </script>
+    </body>
+    
+</body>
+
+</html>

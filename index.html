@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Cards with Search</title>
+  <style>
+    /* Common styles */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Navigation bar styles */
+    .navbar {
+      background-color: #333;
+      color: white;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      margin-right: 1rem;
+    }
+
+    .navbar a {
+      color: white;
+      text-decoration: none;
+    }
+
+    /* Search bar styles */
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: #eee;
+      padding: 0.5rem;
+      border-radius: 5px;
+      margin-top: 1rem;
+    }
+
+    .search-bar input[type="text"] {
+      border: none;
+      padding: 0.25rem;
+      border-radius: 5px;
+    }
+
+    .search-bar button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 5px;
+      margin-left: 0.5rem;
+      cursor: pointer;
+    }
+
+    /* Main content styles */
+    .main-content {
+      padding: 2rem;
+    }
+
+    /* Card styles */
+    .cards {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .card {
+      background-color: #f0f0f0;
+      padding: 1rem;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      flex-basis: calc(33.33% - 1rem);
+      transition: transform 0.3s ease;
+      position: relative;
+      text-decoration: none; /* Added for anchor tag */
+      color: #333; /* Added for anchor tag */
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 5px 5px 0 0;
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 768px) {
+      .navbar ul {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 1;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .navbar li {
+        margin: 0.5rem 0;
+      }
+
+      .navbar-toggle {
+        display: block;
+      }
+
+      .navbar ul li {
+        margin-right: 0;
+      }
+
+      .search-bar {
+        margin-top: 1rem;
+      }
+
+      .cards {
+        justify-content: center;
+      }
+
+      .card {
+        flex-basis: calc(50% - 1rem);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .navbar {
+        padding: 0.5rem;
+      }
+
+      .search-bar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .search-bar input[type="text"] {
+        margin-bottom: 0.5rem;
+      }
+    }
+    .card:hover {
+        box-shadow: 2px 2px 5px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="navbar-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Search...">
+      <button id="searchButton">Search</button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="cards" id="cardsContainer">
+      <!-- Cards will be dynamically added here using JavaScript -->
+    </div>
+  </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const navbarToggle = document.querySelector(".navbar-toggle");
+    const navbarList = document.querySelector(".navbar ul");
+    const searchInput = document.getElementById("searchInput");
+    const searchButton = document.getElementById("searchButton");
+    const cardsContainer = document.querySelector(".cards");
+
+    const cardData = [
+      { title: "Card 1", content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", imagePath: "images/image1.jpg", link: "https://www.example.com/card1" },
+      { title: "Card 2", content: "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.", imagePath: "images/image2.jpg", link: "https://www.example.com/card2" },
+      { title: "Card 3", content: "Sed tempus, velit at aliquam facilisis, lectus nisi lacinia arcu.", imagePath: "images/image3.jpg", link: "https://www.example.com/card3" }
+      // Add more card data as needed
+    ];
+
+    // Responsive Navbar Toggle
+    navbarToggle.addEventListener("click", function() {
+      navbarList.classList.toggle("active");
+    });
+
+    // Search Filter
+    function filterCards() {
+      const searchTerm = searchInput.value.toLowerCase();
+      cardsContainer.innerHTML = "";
+
+      const matchingCards = cardData.filter(card => 
+        card.title.toLowerCase().includes(searchTerm) || card.content.toLowerCase().includes(searchTerm)
+      );
+
+      if (matchingCards.length > 0) {
+        matchingCards.forEach(card => {
+          createCard(card.title, card.content, card.imagePath, card.link);
+        });
+      } else {
+        const noResultsCard = document.createElement("div");
+        noResultsCard.className = "card";
+        noResultsCard.style.textAlign = "center";
+        noResultsCard.textContent = "No matching results found.";
+        cardsContainer.appendChild(noResultsCard);
+      }
+    }
+
+    searchButton.addEventListener("click", filterCards);
+    searchInput.addEventListener("keypress", function(event) {
+      if (event.key === "Enter") {
+        filterCards();
+      }
+    });
+
+    // Create Cards
+    function createCard(title, content, imagePath, link) {
+      const card = document.createElement("a");
+      card.className = "card";
+      card.href = link; // Set the link for the anchor tag
+      card.innerHTML = `
+        <img src="${imagePath}" alt="${title}">
+        <h3>${title}</h3>
+        <p>${content}</p>
+      `;
+      cardsContainer.appendChild(card);
+    }
+
+    // Initial Card Display
+    cardData.forEach(card => {
+      createCard(card.title, card.content, card.imagePath, card.link);
+    });
+
+    // Card Click Interaction
+    cardsContainer.addEventListener("click", function(event) {
+      const clickedCard = event.target.closest(".card");
+      if (clickedCard) {
+        const cardTitle = clickedCard.querySelector("h3").textContent;
+        const cardContent = clickedCard.querySelector("p").textContent;
+        const cardLink = clickedCard.getAttribute("href");
+        
+        alert(`Clicked Card:\nTitle: ${cardTitle}\nContent: ${cardContent}\nLink: ${cardLink}`);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
